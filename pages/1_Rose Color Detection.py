@@ -8,18 +8,21 @@ from streamlit_image_select import image_select
 
 
 # Section 1: Heading and Description
-
+"""
+# ROSE COLOR DETECTION
+Model pendeteksi warna bunga mawar pada input dengan menggunakan metode **Convolutional Neural Network (CNN)** pada Machine Learning. Model ini dibentuk dengan menggunakan model pretrained VGG16 yang sudah dimodifikasi sedemikian rupa agar lebih sederhana dan cepat.
+"""
 
 
 # Section 2: Choosing Image
 
 img = image_select(
-    label = st.write("## Pick an Image"),
+    label = st.write("### Pick an Image"),
     images=
     [
-        'image/Pink/al-soot--pldRipVgx4-unsplash.jpg',
-        'image/Red/Red Rose 1.jpg',
-        'image/Yellow/Yellow Rose (1).jpg'
+        'image/pink-example.jpg',
+        'image/red-example.jpg',
+        'image/yellow-example.jpg',
     ],  
     captions=['Pink', 'Red', 'Yellow']
 )
@@ -38,9 +41,6 @@ if image_uploaded is not None:
     st.image(np.array(Image.open(image_uploaded)))
     result = model.predict(image_uploaded)
     st.write("Result:", result)
-
-end_time = time.time()
-
-time_consume = end_time - start_time
-
-st.write("Time consume:", time_consume)
+    end_time = time.time()
+    time_consume = end_time - start_time
+    st.write("Time consume:", time_consume)
